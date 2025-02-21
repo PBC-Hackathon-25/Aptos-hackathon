@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: #000000;  /* Black background */
+  font-family: var(--font-geist-sans);
+}
+
+/* Custom scrollbar styling for modals */
+.modal-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255, 255, 255, 0.4) transparent; /* thumb and track */
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* translucent white */
+  border-radius: 8px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4); /* translucent white */
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Wire pattern overlay with 7 white lines */
+.wire-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vertical lines */
+.wire-overlay .wire-line.vertical {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background-color: white;
+}
+
+/* Horizontal lines */
+.wire-overlay .wire-line.horizontal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.5px;
+  background-color: white;
+}
