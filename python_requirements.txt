@@ -1,3 +1,4 @@
+python-3.9.21
 aiohappyeyeballs==2.3.5
 aiohttp==3.8.6
 aiosignal==1.3.1
