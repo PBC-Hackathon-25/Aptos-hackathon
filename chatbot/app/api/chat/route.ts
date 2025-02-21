@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     }
     
     // Connect to the local FastAPI server (from fastapi_retrieval.py)
-    const fastApiResponse = await fetch("http://localhost:8000/chat_endpoint", {
+    const fastApiResponse = await fetch("https://aptos-fastapi.onrender.com/chat_endpoint", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query })
