@@ -82,20 +82,18 @@ export default function AptosAIModal({ isOpen, onClose }: AptosAIModalProps) {
       const responseContent = data.response?.response?.content;
       console.log('Response content:', responseContent);
       
-      const markdownContent = responseContent || 'No content available';
+      let markdownContent = responseContent || 'No content available';
       console.log('Initial markdown content:', markdownContent);
       
       const assistantMessage: Message = {
         role: 'assistant',
         content: markdownContent,
-        urls: data.response.scraped_urls && data.response.scraped_urls.length > 0
-          ? data.response.scraped_urls
-          : undefined,
+        urls: data.response.scraped_urls && data.response.scraped_urls.length > 0 ? data.response.scraped_urls : undefined,
       };
 
       console.log('Final assistant message:', assistantMessage);
       setMessages(prev => [...prev, assistantMessage]);
-    } catch {
+    } catch (error) {
       setMessages(prev => [
         ...prev,
         {
@@ -118,7 +116,7 @@ export default function AptosAIModal({ isOpen, onClose }: AptosAIModalProps) {
   if (!mounted || !isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"> {/* scrollbar edit needed for this component */}
       <div className="bg-[#051419] border border-white/20 rounded-lg w-full max-w-4xl mx-4">
         <div className="flex justify-between items-center px-4 py-3 border-b border-[#ffffff1a]">
           <div className="flex items-center gap-2">

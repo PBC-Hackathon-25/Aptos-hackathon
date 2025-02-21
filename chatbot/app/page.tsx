@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { useState } from "react";
 import AptosAIModal from "./components/AptosAIModal";
 import { Inter } from 'next/font/google';
@@ -8,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
+  const [buildOpen, setBuildOpen] = useState(false);
+  const [networkOpen, setNetworkOpen] = useState(false);
+  const [additionalOpen, setAdditionalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#051419]">
